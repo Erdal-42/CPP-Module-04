@@ -55,20 +55,20 @@ If you want to, you can update the class name by adding a A prefix to Animal.
 
 Complete the definition of the following AMateria class and implement the necessary
 member functions.
-
+'''
 class AMateria
 {
-protected:
-    […]
+    protected:
+        […]
 
-public:
-    AMateria(std::string const & type);
-    […]
-    std::string const & getType() const; //Returns the materia type
-    virtual AMateria* clone() const = 0;
-    virtual void use(ICharacter& target);
+    public:
+        AMateria(std::string const & type);
+        […]
+        std::string const & getType() const; //Returns the materia type
+        virtual AMateria* clone() const = 0;
+        virtual void use(ICharacter& target);
 };
-
+'''
 Implement the Materias concrete classes Ice and Cure. Use their name in lowercase ("ice" for Ice, "cure" for Cure) to set their types. Of course, their member function clone() will return a new instance of the same type (i.e., if you clone an Ice Materia, you will get a new Ice Materia).
 The use(ICharacter&) member function will display:
 
