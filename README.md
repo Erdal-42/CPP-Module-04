@@ -79,6 +79,7 @@ The use(ICharacter&) member function will display:
 brackets (< and >).
 
 Write the concrete class Character which will implement the following interface:
+'''
 class ICharacter
 {
     public:
@@ -88,13 +89,13 @@ class ICharacter
         virtual void unequip(int idx) = 0;
         virtual void use(int idx, ICharacter& target) = 0;
 };
-
+'''
 The Character possesses an inventory of 4 slots, which means 4 Materias at most. The inventory is empty at construction. They equip the Materias in the first empty slot they find. This means, in this order: from slot 0 to slot 3. In case they try to add a Materia to a full inventory, or use/unequip an unexisting Materia, don’t do anything (but still, bugs are forbidden). The unequip() member function must NOT delete the Materia!
 
 The use(int, ICharacter&) member function will have to use the Materia at the slot[idx], and pass the target parameter to the AMateria::use function.
 
 Your Character must have a constructor taking its name as a parameter. Any copy (using copy constructor or copy assignment operator) of a Character must be deep. During copy, the Materias of a Character must be deleted before the new ones are added to their inventory. Of course, the Materias must be deleted when a Character is destroyed. Write the concrete class MateriaSource which will implement the following interface:
-
+'''
 class IMateriaSource
 {
     public:
@@ -102,7 +103,7 @@ class IMateriaSource
         virtual void learnMateria(AMateria*) = 0;
         virtual AMateria* createMateria(std::string const & type) = 0;
 };
-
+'''
 • learnMateria(AMateria*)
 
 Copies the Materia passed as a parameter and store it in memory so it can be cloned later. Like the Character, the MateriaSource can know at most 4 Materias. They are not necessarily unique.
